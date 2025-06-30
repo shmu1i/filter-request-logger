@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 600px;
+      min-height: 400px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13px;
+    }
+    .header {
+      background: #f5f5f5;
+      padding: 10px 15px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: #4285f4;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    button:hover {
+      background: #3367d6;
+    }
+    button:active {
+      background: #2851a3;
+    }
+    .filter-input {
+      padding: 4px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .request-list {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .request-item {
+      padding: 8px 15px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      transition: background 0.1s;
+    }
+    .request-item:hover {
+      background: #f8f9fa;
+    }
+    .status-badge {
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 11px;
+      min-width: 40px;
+      text-align: center;
+    }
+    .status-2xx {
+      background: #d4edda;
+      color: #155724;
+    }
+    .status-3xx {
+      background: #cce5ff;
+      color: #004085;
+    }
+    .status-4xx {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    .status-5xx {
+      background: #f5c6cb;
+      color: #721c24;
+    }
+    .status-error {
+      background: #e2e3e5;
+      color: #383d41;
+    }
+    .method {
+      font-weight: 600;
+      color: #666;
+      min-width: 45px;
+    }
+    .url {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+    }
+    .timestamp {
+      color: #999;
+      font-size: 11px;
+    }
+    .type {
+      color: #666;
+      font-size: 11px;
+      padding: 2px 6px;
+      background: #f0f0f0;
+      border-radius: 3px;
+    }
+    .empty-state {
+      padding: 50px 20px;
+      text-align: center;
+      color: #999;
+    }
+    .loading {
+      padding: 20px;
+      text-align: center;
+      color: #666;
+    }
+    .url a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .url a:hover {
+      text-decoration: underline;
+      color: #4285f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Network Request Logger</h2>
+    <div class="controls">
+      <input type="text" class="filter-input" id="filterInput" placeholder="Filter URLs...">
+      <button id="clearBtn">Clear All</button>
+      <button id="refreshBtn">Refresh</button>
+    </div>
+  </div>
+  <div id="content">
+    <div class="loading">Loading...</div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
